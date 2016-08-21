@@ -53,6 +53,7 @@
 #include <moveit/kinematics_base/kinematics_base.h>
 
 // MoveIt!
+#include <moveit/macros/class_forward.h>
 #include <moveit/robot_model/robot_model.h>
 #include <moveit/robot_state/robot_state.h>
 #include <moveit/planning_scene/planning_scene.h>
@@ -62,9 +63,7 @@
 namespace kinematics_constraint_aware
 {
 
-class KinematicsConstraintAware;
-typedef boost::shared_ptr<KinematicsConstraintAware> KinematicsConstraintAwarePtr;
-typedef boost::shared_ptr<const KinematicsConstraintAware> KinematicsConstraintAwareConstPtr;
+MOVEIT_CLASS_FORWARD(KinematicsConstraintAware);
 
 /**
  * @class A kinematics solver that can be used with multiple arms

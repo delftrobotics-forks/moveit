@@ -38,6 +38,7 @@
 #ifndef KINEMATICS_CACHE_H_
 #define KINEMATICS_CACHE_H_
 
+#include <moveit/macros/class_forward.h>
 #include <kinematics_base/kinematics_base.h>
 #include <planning_models/robot_model.h>
 #include <planning_models/kinematic_state.h>
@@ -46,6 +47,9 @@
 
 namespace kinematics_cache
 {
+
+  MOVEIT_CLASS_FORWARD(KinematicsCache);
+
   class KinematicsCache 
   {
     public:
@@ -173,15 +177,13 @@ namespace kinematics_cache
     planning_models::RobotState *Ptr kinematic_state_; /** An instance of the kinematic state */
     
     const planning_models::RobotModel::JointModelGroup* joint_model_group_; /** Joint model group associated with this cache */
-    boost::shared_ptr<planning_models::RobotState *::JointStateGroup> joint_state_group_; /** Joint state corresponding to cache */
+    planning_models::RobotStatePtr *::JointStateGroup> joint_state_group_; /** Joint state corresponding to cache */
     
     //    mutable std::vector<double> solution_local_; /** Local pre-allocated storage */
 
     double min_squared_distance_, max_squared_distance_;    
   };
 
-typedef boost::shared_ptr<KinematicsCache> KinematicsCachePtr;
-    
 }
 
 #endif

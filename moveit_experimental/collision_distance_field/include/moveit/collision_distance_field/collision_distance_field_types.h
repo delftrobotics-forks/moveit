@@ -134,6 +134,8 @@ bool getCollisionSphereCollision(const distance_field::DistanceField* distance_f
 //forward declaration required for friending apparently
 class BodyDecompositionVector;
 
+MOVEIT_CLASS_FORWARD(BodyDecomposition);
+
 class BodyDecomposition {
 
   friend class BodyDecompositionVector;
@@ -195,8 +197,7 @@ private:
   EigenSTL::vector_Vector3d relative_collision_points_;
 };
 
-typedef boost::shared_ptr<BodyDecomposition> BodyDecompositionPtr;
-typedef boost::shared_ptr<const BodyDecomposition> BodyDecompositionConstPtr;
+MOVEIT_CLASS_FORWARD(PosedBodySphereDecomposition);
 
 class PosedBodySphereDecomposition {
 
@@ -238,6 +239,8 @@ protected:
   EigenSTL::vector_Vector3d sphere_centers_;
 };
 
+MOVEIT_CLASS_FORWARD(PosedBodyPointDecomposition);
+
 class PosedBodyPointDecomposition {
 
 public:
@@ -261,10 +264,7 @@ protected:
   EigenSTL::vector_Vector3d posed_collision_points_;
 };
 
-typedef boost::shared_ptr<PosedBodyPointDecomposition> PosedBodyPointDecompositionPtr;
-typedef boost::shared_ptr<const PosedBodyPointDecomposition> PosedBodyPointDecompositionConstPtr;
-typedef boost::shared_ptr<PosedBodySphereDecomposition> PosedBodySphereDecompositionPtr;
-typedef boost::shared_ptr<const PosedBodySphereDecomposition> PosedBodySphereDecompositionConstPtr;
+MOVEIT_CLASS_FORWARD(PosedBodySphereDecompositionVector);
 
 class PosedBodySphereDecompositionVector
 {
@@ -335,6 +335,8 @@ private:
   std::map<unsigned int, unsigned int> sphere_index_map_;
 };
 
+MOVEIT_CLASS_FORWARD(PosedBodyPointDecompositionVector);
+
 class PosedBodyPointDecompositionVector
 {
 public:
@@ -384,11 +386,6 @@ private:
   PosedBodyPointDecompositionPtr empty_ptr_;
   std::vector<PosedBodyPointDecompositionPtr> decomp_vector_;
 };
-
-typedef boost::shared_ptr<PosedBodySphereDecompositionVector> PosedBodySphereDecompositionVectorPtr;
-typedef boost::shared_ptr<const PosedBodySphereDecompositionVector> PosedBodySphereDecompositionVectorConstPtr;
-typedef boost::shared_ptr<PosedBodyPointDecompositionVector> PosedBodyPointDecompositionVectorPtr;
-typedef boost::shared_ptr<const PosedBodyPointDecompositionVector> PosedBodyPointDecompositionVectorConstPtr;
 
 struct ProximityInfo 
 { 

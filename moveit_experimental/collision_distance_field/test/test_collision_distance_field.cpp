@@ -107,8 +107,8 @@ protected:
   robot_state::TransformsPtr                 ftf_;
   robot_state::TransformsConstPtr            ftf_const_;
   
-  boost::shared_ptr<collision_detection::CollisionRobot>        crobot_;
-  boost::shared_ptr<collision_detection::CollisionWorld>        cworld_;
+  collision_detection::CollisionRobotPtr        crobot_;
+  collision_detection::CollisionWorldPtr        cworld_;
   
   collision_detection::AllowedCollisionMatrixPtr acm_;
 

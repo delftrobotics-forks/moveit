@@ -80,7 +80,7 @@ public:
                                    CollisionResult &res,
                                    const CollisionRobot &robot,
                                    const robot_state::RobotState &state,
-                                   boost::shared_ptr<GroupStateRepresentation>& gsr) const;
+                                   GroupStateRepresentationPtr& gsr) const;
     
   void checkCollisionDistanceField(const CollisionRequest &req,
                                    CollisionResult &res,
@@ -93,7 +93,7 @@ public:
                                    const CollisionRobot &robot,
                                    const robot_state::RobotState &state,
                                    const AllowedCollisionMatrix &acm,
-                                   boost::shared_ptr<GroupStateRepresentation>& gsr) const;
+                                   GroupStateRepresentationPtr& gsr) const;
 
   void checkRobotCollisionDistanceField(const CollisionRequest &req, 
                                         CollisionResult &res, 
@@ -104,7 +104,7 @@ public:
                                         CollisionResult &res, 
                                         const CollisionRobot &robot, 
                                         const robot_state::RobotState &state,
-                                        boost::shared_ptr<GroupStateRepresentation>& gsr) const;
+                                        GroupStateRepresentationPtr& gsr) const;
 
   void checkRobotCollisionDistanceField(const CollisionRequest &req, 
                                         CollisionResult &res, 
@@ -117,7 +117,7 @@ public:
                                         const CollisionRobot &robot, 
                                         const robot_state::RobotState &state, 
                                         const AllowedCollisionMatrix &acm,
-                                        boost::shared_ptr<GroupStateRepresentation>& gsr) const;
+                                        GroupStateRepresentationPtr& gsr) const;
 
   virtual void setWorld(const WorldPtr& world);
 
@@ -126,21 +126,21 @@ public:
                              const CollisionRobot &robot, 
                              const robot_state::RobotState &state, 
                              const AllowedCollisionMatrix* acm,
-                             boost::shared_ptr<GroupStateRepresentation>& gsr) const;
+                             GroupStateRepresentationPtr& gsr) const;
 
   void getAllCollisions(const CollisionRequest &req, 
                         CollisionResult &res, 
                         const CollisionRobot &robot, 
                         const robot_state::RobotState &state, 
                         const AllowedCollisionMatrix* acm,
-                        boost::shared_ptr<GroupStateRepresentation>& gsr) const;
+                        GroupStateRepresentationPtr& gsr) const;
 
-  const boost::shared_ptr<const collision_detection::CollisionWorldDistanceField> getCollisionWorldDistanceField() const {
+  const collision_detection::CollisionWorldDistanceFieldConstPtr getCollisionWorldDistanceField() const {
     return cworld_distance_;
   }
 
 protected:
-  boost::shared_ptr<collision_detection::CollisionWorldDistanceField> cworld_distance_;
+  collision_detection::CollisionWorldDistanceFieldPtr cworld_distance_;
 };
 
 }

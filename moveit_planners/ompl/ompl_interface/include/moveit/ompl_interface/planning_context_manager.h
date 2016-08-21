@@ -222,11 +222,11 @@ protected:
 
 private:
 
-  class LastPlanningContext;
-  boost::shared_ptr<LastPlanningContext>                last_planning_context_;
+  MOVEIT_CLASS_FORWARD(LastPlanningContext);
+  MOVEIT_STRUCT_FORWARD(CachedContexts);
 
-  struct CachedContexts;
-  boost::shared_ptr<CachedContexts>                     cached_contexts_;
+  LastPlanningContextPtr last_planning_context_;
+  CachedContextsPtr      cached_contexts_;
 };
 
 }
