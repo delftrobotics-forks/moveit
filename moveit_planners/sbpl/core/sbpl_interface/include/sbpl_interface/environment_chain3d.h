@@ -55,6 +55,7 @@
 #include <collision_distance_field/collision_robot_hybrid.h>
 #include <collision_distance_field/collision_world_hybrid.h>
 #include <sbpl_interface/environment_chain3d_types.h>
+#include <moveit/macros/class_forward.h>
 #include <moveit_msgs/GetMotionPlan.h>
 
 #include <Eigen/Core>
@@ -96,6 +97,8 @@ struct PlanningParameters {
   double interpolation_distance_;
   double joint_motion_primitive_distance_;
 };
+
+MOVEIT_CLASS_FORWARD(EnvironmentChain3D);
 
 /** Environment to be used when planning for a Robotic Arm using the SBPL. */
 class EnvironmentChain3D: public DiscreteSpaceInformation
@@ -254,14 +257,14 @@ protected:
   double angle_discretization_;
   BFS_3D *bfs_;
 
-  std::vector<boost::shared_ptr<JointMotionWrapper> > joint_motion_wrappers_;
-  std::vector<boost::shared_ptr<JointMotionPrimitive> > possible_actions_;
+  std::vector<JointMotionWrapperPtr> joint_motion_wrappers_;
+  std::vector<JointMotionPrimitivePtr> possible_actions_;
   planning_models::RobotState *state_;
   const collision_detection::CollisionWorldHybrid* hy_world_;
   const collision_detection::CollisionRobotHybrid* hy_robot_;
   planning_models::RobotState *::JointStateGroup* joint_state_group_;
-  boost::shared_ptr<collision_detection::GroupStateRepresentation> gsr_;
-  //boost::shared_ptr<kinematics::KinematicsBase> kinematics_solver_;
+  collision_detection::GroupStateRepresentationPtr gsr_;
+  //kinematics::KinematicsBasePtr kinematics_solver_;
   const planning_models::RobotState *::LinkState* tip_link_state_;
   EnvChain3DPlanningData planning_data_;
   kinematic_constraints::KinematicConstraintSet goal_constraint_set_;

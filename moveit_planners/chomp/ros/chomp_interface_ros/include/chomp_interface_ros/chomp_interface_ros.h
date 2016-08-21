@@ -37,12 +37,16 @@
 #ifndef _CHOMP_INTERFACE_ROS_H_
 #define _CHOMP_INTERFACE_ROS_H_
 
+#include <moveit/macros/class_forward.h>
 #include <chomp_motion_planner/chomp_planner.h>
 #include <chomp_motion_planner/chomp_parameters.h>
 #include <ros/ros.h>
 
 namespace chomp_interface_ros
 {
+
+MOVEIT_CLASS_FORWARD(CHOMPInterfaceROS);
+
 /** @class CHOMPInterfaceROS */
 class CHOMPInterfaceROS : public chomp::ChompPlanner
 {

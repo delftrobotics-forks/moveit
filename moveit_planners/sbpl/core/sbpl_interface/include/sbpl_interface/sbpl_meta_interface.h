@@ -38,12 +38,16 @@
 
 #include <sbpl/headers.h>
 #include <planning_scene/planning_scene.h>
+#include <moveit/macros/class_forward.h>
 #include <moveit_msgs/GetMotionPlan.h>
 #include <sbpl_interface/sbpl_interface.h>
 #include <boost/thread.hpp>
 
 namespace sbpl_interface
 {
+
+MOVEIT_CLASS_FORWARD(SBPLMetaInterface);
+
 class SBPLMetaInterface
 {
 public:
@@ -74,8 +78,8 @@ protected:
   bool second_ok_;
   bool second_done_;
 
-  boost::shared_ptr<sbpl_interface::SBPLInterface> sbpl_interface_first_;
-  boost::shared_ptr<sbpl_interface::SBPLInterface> sbpl_interface_second_;
+  SBPLInterfacePtr sbpl_interface_first_;
+  SBPLInterfacePtr sbpl_interface_second_;
 
   PlanningStatistics last_planning_statistics_;
 };

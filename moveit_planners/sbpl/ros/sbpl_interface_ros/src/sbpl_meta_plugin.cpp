@@ -108,7 +108,7 @@ public:
 
 private:
   ros::Publisher display_bfs_publisher_;
-  boost::shared_ptr<sbpl_interface::SBPLMetaInterface> sbpl_meta_interface_;
+  sbpl_interface::SBPLMetaInterfacePtr sbpl_meta_interface_;
 };
 
 } // ompl_interface_ros

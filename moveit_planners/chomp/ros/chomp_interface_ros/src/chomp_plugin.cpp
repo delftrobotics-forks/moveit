@@ -102,7 +102,7 @@ public:
   }
 
 private:
-  boost::shared_ptr<CHOMPInterfaceROS> chomp_interface_;
+  CHOMPInterfaceROSPtr chomp_interface_;
 };
 
 } // ompl_interface_ros

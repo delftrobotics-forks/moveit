@@ -39,6 +39,7 @@
 #define _ENVIRONMENT_CHAIN3D_TYPES_H_
 
 #include <vector>
+#include <moveit/macros/class_forward.h>
 #include <planning_models/robot_model.h>
 #include <planning_models/angle_utils.h>
 
@@ -178,6 +179,8 @@ struct EnvChain3DPlanningData
 
 };
 
+MOVEIT_CLASS_FORWARD(JointMotionWrapper);
+
 class JointMotionWrapper {
 public:
 
@@ -272,9 +275,11 @@ public:
                                       std::vector<double>& end) = 0;
 };
 
+MOVEIT_CLASS_FORWARD(SingleJointMotionPrimitive);
+
 class SingleJointMotionPrimitive : public JointMotionPrimitive {
 public:
-  SingleJointMotionPrimitive(const boost::shared_ptr<JointMotionWrapper>& joint_motion_wrapper,
+  SingleJointMotionPrimitive(const JointMotionWrapperPtr & joint_motion_wrapper,
                              unsigned int ind,
                              double delta) :
     joint_motion_wrapper_(joint_motion_wrapper),
@@ -289,7 +294,7 @@ public:
     return joint_motion_wrapper_->getSuccessorValue(start[ind_], delta_, end[ind_]);
   }
 protected:
-  boost::shared_ptr<JointMotionWrapper> joint_motion_wrapper_;
+  JointMotionWrapperPtr joint_motion_wrapper_;
   unsigned int ind_;
   double delta_;
 };

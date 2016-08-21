@@ -38,11 +38,15 @@
 
 #include <sbpl/headers.h>
 #include <planning_scene/planning_scene.h>
+#include <moveit/macros/class_forward.h>
 #include <moveit_msgs/GetMotionPlan.h>
 #include <sbpl_interface/environment_chain3d.h>
 
 namespace sbpl_interface
 {
+
+MOVEIT_CLASS_FORWARD(SBPLInterface);
+
 class SBPLInterface
 {
 public:

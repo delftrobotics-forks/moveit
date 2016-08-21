@@ -51,7 +51,7 @@ bool SBPLInterface::solve(const planning_scene::PlanningSceneConstPtr& planning_
   planning_models::robotStateMsgToRobotState(*planning_scene->getTransforms(), req.motion_plan_request.start_state, start_state);
 
   ros::WallTime wt = ros::WallTime::now();
-  boost::shared_ptr<EnvironmentChain3D> env_chain(new EnvironmentChain3D(planning_scene));
+  EnvironmentChain3DPtr env_chain(new EnvironmentChain3D(planning_scene));
   if(!env_chain->setupForMotionPlan(planning_scene,
                                     req,
                                     res,
